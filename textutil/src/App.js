@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+
 
 let name = "vishal soni";
 function App() {
@@ -25,8 +28,8 @@ function App() {
 
     //my code
     <>
-      <div className="container">Hello {name}</div>
-      <h1></h1>
+      <Navbar />
+      <TextForm />
     </>
   );
 }
