@@ -2,12 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import About from './components/About';
 
 
 let name = "vishal soni";
 function App() {
   return (
-
     //by default given code
     // <div className="App">
     //   <header className="App-header">
@@ -27,9 +27,11 @@ function App() {
     // </div>
 
     //my code
+
     <>
       <Navbar />
       <TextForm />
+      <About />
     </>
   );
 }
