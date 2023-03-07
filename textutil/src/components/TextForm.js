@@ -64,7 +64,11 @@ export default function TextForm(props) {
             <button style={base} onClick={handleSpaces}>remove extra spaces</button>
 
             <h2>summary of your text</h2>
-            <p>written words: {text.split(" ").length}</p>
+            {/* <p>written words: {text.split(" ").length}</p> */}
+            {/* the above code will count spaces also a word */}
+            <p>written words: {text.length === 0 ? 0 : text.charAt(text.length - 1) === " " ? text.split(/[ ]+/).length - 1 : text.split(/[ ]+/).length}</p>
+            {/* if last char ==" " then length-1 */}
+
             <p>written character : {text.length}</p>
             <h1>your written text preview</h1>
             <p>{text}</p>

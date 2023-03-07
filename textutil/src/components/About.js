@@ -12,6 +12,7 @@ export default function About() {
         <>
             <div style={myStyle}></div>
             <div className="check"></div>
+            <div>i am about us just about us and i do not want to tell u about use and u cant do anything</div>
         </>
     )
 }
