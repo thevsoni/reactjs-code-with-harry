@@ -51,7 +51,7 @@ function App() {
 
 
       <BrowserRouter>
-        <Navbar />
+        <Navbar h1="h1111" h2="h2222222" h3="h3333333" />
         <Routes>
           <Route path="/" element={<TextForm />}></Route>
           {/* <Route exact path="/" element={<TextForm />}></Route> */}

@@ -3,12 +3,16 @@ import './App.css';
 
 
 import React, { Component } from 'react'
+import Navbar from './components/Navbar';
+import News from './components/News';
 
 export default class App extends Component {
-  c = "vishal";
   render() {
     return (
-      <div>hello my first class based component .i am {this.c}</div>
+      <div>
+        <Navbar />
+        <News />
+      </div>
     )
   }
 }
