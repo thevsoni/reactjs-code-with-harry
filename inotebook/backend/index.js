@@ -6,7 +6,7 @@ main().then(() => console.log("connected")).catch(err => console.log(err));
 
 
 const app = express()
-const port = 3000
+const port = 5000
 
 // app.use(express.urlencoded());; // need to read about this
 app.use(express.json());
