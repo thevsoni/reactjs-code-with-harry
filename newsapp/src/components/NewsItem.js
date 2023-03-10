@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function NewsItem() {
-    return (
-        <div>NewsItem component</div>
-    )
+export default class NewsItem extends Component {
+
+    render(props) {
+        let { title, descriptions } = this.props;
+        return (
+            <div>
+
+                <h2>{title}</h2>
+                <h2>{descriptions}</h2>
+            </div>
+        )
+    }
 }

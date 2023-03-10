@@ -11,7 +11,7 @@ export default class App extends Component {
     return (
       <div>
         <Navbar />
-        <News />
+        <News apple="i am apple" ball="i am ball" />
       </div>
     )
   }
