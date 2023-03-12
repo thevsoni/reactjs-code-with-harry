@@ -3,10 +3,14 @@ const router = express.Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken');
+var fetchuser = require('../middlewear/fetchuser');
+
 const JWT_SECRET = "Harryisagoodb$oy";
 
-//Route 1 : create a user using: POST "/api/auth"
+
+
+//Route 1 : create a user using: POST "/api/auth" , //no login required
 router.post('/createuser', [
     body('name', 'enter a valid name').isLength({ min: 3 }),
     body('email', 'enter a valid email').isEmail(),
@@ -35,7 +39,6 @@ router.post('/createuser', [
                 password: secPass,
                 email: req.body.email,
             });
-            // res.json(user); now we will not send user data to user instead, we will send token now jwt
             const data = {
                 user: {
                     id: user.id
@@ -52,7 +55,7 @@ router.post('/createuser', [
 
     });
 
-//Route 2:authenticate a user using :post /api/auth/login
+//Route 2:authenticate a user using :post /api/auth/login  ,//no login required
 router.post('/login', [
     body('email', 'enter a valid email').isEmail(),
     body('password', 'pwd cant be blank').exists(),
@@ -92,6 +95,22 @@ router.post('/login', [
     }
 })
 
+
+//Route 3: get logged in user details using :post /api/auth/getuser  ,// login required
+router.post('/getuser', fetchuser, async (req, res) => {
+    try {
+        userId = req.user.id;
+        const user = await User.findById(userId).select("-password"); //using except pwd,i'll get everything
+        console.log("get user authentication successfull")
+        res.send(user);
+    } catch (error) {
+        console.log("some error = ", error.message);
+        res.status(500).send("internal server error");
+    }
+})
+
+
+
 module.exports = router;
 
 
@@ -100,6 +119,8 @@ module.exports = router;
 
 /*
 // previous code 
+// res.json(user); now we will not send user data to user instead, we will send token now jwt
+
  // User.create({
         //     name: req.body.name,
         //     password: req.body.password,
