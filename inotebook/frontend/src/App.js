@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import Alert from './components/Alert';
 import NoteState from './context/notes/NoteState';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <NoteState>
         <BrowserRouter>
           <Navbar />
+          <Alert message="i will update this alert ,no worry" />
 
           <div className='container'>
             <Routes>

@@ -1,5 +1,6 @@
 const main = require('./db');
 const express = require('express')
+var cors = require('cors')
 
 //connect to mongodb
 main().then(() => console.log("connected")).catch(err => console.log(err));
@@ -7,6 +8,8 @@ main().then(() => console.log("connected")).catch(err => console.log(err));
 
 const app = express()
 const port = 5000
+
+app.use(cors()); //to fetch api from backend
 
 // app.use(express.urlencoded());; // need to read about this
 app.use(express.json());
